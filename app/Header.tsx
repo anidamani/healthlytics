@@ -23,7 +23,7 @@ const Header = () => {
         <div className="lg:flex hidden items-center justify-between gap-[25px]">
           <Link href="/"><h1 className={navItem}>Home</h1></Link>
           <Link href="/services"><h1 className={navItem}>Services</h1></Link>
-          <Link href="/products"><h1 className={navItem}>Products / Case Studies</h1></Link>
+          <Link href="/products"><h1 className={navItem}>Products</h1></Link>
           <Link href="/about-us"><h1 className={navItem}>About Us</h1></Link>
           <Link href="/blogs"><h1 className={navItem}>Blogs</h1></Link>
           <Link href="/contact"><h1 className={navItem}>Contact</h1></Link>

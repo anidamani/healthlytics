@@ -27,6 +27,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Healthlytics.ai - AI-Powered Healthcare Analytics Solutions</title>
+        <meta name="description" content="Healthlytics.ai delivers cutting-edge AI and data analytics solutions for healthcare organizations. Optimize operations, improve patient outcomes, and ensure regulatory compliance."/>
+        <meta name="keywords" content="healthcare AI, medical data analytics, clinical decision support, healthcare compliance, predictive analytics"/>
+        <meta property="og:title" content="Healthlytics.ai - Transform Healthcare with AI Analytics"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://healthlytics.ai"/>
+        <meta property="og:image" content="https://healthlytics.ai/og-image.jpg"/>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body
         className={` px-[12px] sm:px-[20px] lg:px-[32px] bg-[#f4f4f4] `}
       >

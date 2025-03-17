@@ -32,7 +32,7 @@ const OurProducts: React.FC = () => {
       
       className="mt-[90px]"
     >
-      <h1 className="max-w-[70%] md:max-w-[60%] font-medium text-[28px] sm:text-[34px] md:text-[54px] xl:text-[64px] leading-[40px] sm:leading-[60px] md:leading-[80px] text-[#161B24]">
+      <h1 className="max-w-[70%] md:max-w-[60%] font-medium text-[28px] sm:text-[34px] md:text-[54px] xl:text-[64px] leading-[40px] sm:leading-[60px] md:leading-[80px] text-[#161B24]" itemScope itemType="https://schema.org/ItemList">
         <span className="bg-[#79ED9E80] rounded-[20px] px-2 ">Our</span> Comprehensive{" "}
         <span className="bg-[#79ED9E80] rounded-[20px] px-2 ">Products</span> Portfolio
       </h1>

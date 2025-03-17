@@ -27,7 +27,7 @@ const servicesData = [
   {
     id: 3,
     image: '/p3.jpg',
-    title: 'Reclaiming Time, Enhancing Care with our AI Scribe for Mental Health Professionals: Waivs.AI',
+    title: 'Reclaiming Time, Enhancing Care with our AI Scribe for Mental Health Professionals: waivs.ai',
     index:2,
     description: '',
   },
@@ -147,12 +147,12 @@ interface PageProps {
 
 {service.id==3 &&
   <div className='flex mt-12 flex-col'>
-
   <Image src="/wavie.png" width={300} height={50} className='' alt=''/>
-  <h1 className="font-normal mt-[15px] text-[14px] xl:text-[18px] leading-[28px] text-[#161B24B2]">URL to our solution:   <Link href="/services/1" className="text-blue-600 underline">
-https://www.waivs.ai/ 
-  </Link>
- </h1>
+  <h1 className="font-normal mt-[15px] text-[14px] xl:text-[18px] leading-[28px] text-[#161B24B2]">
+    <Link href="https://www.waivs.ai" className="text-blue-600 underline">
+      https://www.waivs.ai
+    </Link>
+  </h1>
 </div>
   }
 
@@ -170,6 +170,39 @@ https://www.waivs.ai/
   ))}
 </div>
 
+    <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": service?.title,
+      "description": service?.description || `${
+        service?.id === 1 
+          ? 'AI-powered lung disease detection and diagnostic support system for early intervention and improved patient outcomes.'
+          : service?.id === 2 
+          ? 'Data governance and analytics solution for healthcare organizations to optimize operations and ensure data reliability.'
+          : 'waivs.ai: AI-powered transcription and documentation solution for mental health professionals to reduce administrative burden and improve patient care.'
+      }`,
+      "image": `${BASE_URL}${service?.image}`,
+      "brand": {
+        "@type": "Brand",
+        "name": "Healthlytics.ai",
+        "logo": `${BASE_URL}/logo.svg`
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "category": "Healthcare AI Solutions"
+      }
+    })
+  }}
+/>
     </div>
   );
 };

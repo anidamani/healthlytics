@@ -57,7 +57,7 @@ const Services: React.FC = () => {
       
       className="mt-[90px]"
     >
-      <h1 className="max-w-[70%] md:max-w-[60%] font-medium text-[28px] sm:text-[34px] md:text-[54px] xl:text-[64px] leading-[40px] sm:leading-[60px] md:leading-[80px] text-[#161B24]">
+      <h1 className="max-w-[70%] md:max-w-[60%] font-medium text-[28px] sm:text-[34px] md:text-[54px] xl:text-[64px] leading-[40px] sm:leading-[60px] md:leading-[80px] text-[#161B24]" itemScope itemType="https://schema.org/ItemList">
         <span className="bg-[#79ED9E80] rounded-[20px] px-2 ">Our</span> Comprehensive{" "}
         <span className="bg-[#79ED9E80] rounded-[20px] px-2 ">Service</span> Portfolio
       </h1>
@@ -66,7 +66,7 @@ const Services: React.FC = () => {
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[25px]">
         {servicesData.map((service,index) => (
-          <Link key={index} href={`/services/${index+1}`}>
+          <Link key={index} href={`/services/${index+1}`} aria-label={`Learn more about ${service.title}`}>
           <ServiceCard
             key={service.title}
             image={service.image}
