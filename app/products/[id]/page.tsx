@@ -9,6 +9,8 @@ import Consulting from '@/app/components/Services/Consulting';
 import StockMilestones from '@/app/components/Services/StockMilestones';
 import Healthlytcis from '@/app/components/Services/Healthlytics';
 import Link from 'next/link';
+const BASE_URL = 'https://healthlytics.ai';  // Add this line at the top
+
 const servicesData = [
   {
     id: 1,
