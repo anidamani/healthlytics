@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./globals.css"
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from "./Header";
 import Footer from "./Footer";
 import CallToAction from "./components/Home/CallToAction";
@@ -46,7 +48,9 @@ export default function RootLayout({
         <CallToAction/>
         <Footer/>
         </main>
-      </body>
+      <Analytics />
+      <SpeedInsights />
+</body>
     </html>
   );
 }
