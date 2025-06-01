@@ -15,8 +15,8 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
-// Function to fetch all posts (formerly blogs)
-export async function getAllBlogs() {
+// Function to fetch all posts
+export async function getAllPosts() {
   return client.fetch(
     `*[_type == "post"] | order(publishedAt desc) {
       _id,
@@ -30,7 +30,7 @@ export async function getAllBlogs() {
 }
 
 // Function to fetch a single post by ID
-export async function getBlogById(id: string) {
+export async function getPostById(id: string) {
   return client.fetch(
     `*[_type == "post" && _id == $id][0]{
       _id,
@@ -43,3 +43,7 @@ export async function getBlogById(id: string) {
     { id }
   );
 }
+
+// Legacy functions for backward compatibility (these can be removed later)
+export const getAllBlogs = getAllPosts;
+export const getBlogById = getPostById;

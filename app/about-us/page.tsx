@@ -3,7 +3,7 @@ import ToggleComponent from '../components/ToggleComponent'
 import AboutHero from '../components/AboutUs/AboutHero'
 import OurMission from '../components/AboutUs/OurMission'
 import OurLeaderShip from '../components/AboutUs/OurLeaderShip'
-import Blogs from '../components/Home/Blogs'
+import Posts from '../components/Home/Posts'
 import OurPaterns from '../components/AboutUs/OurPaterns'
 
 const Page = () => {

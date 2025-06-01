@@ -2,7 +2,7 @@ import BrandsSection from "./components/Home/BrandsSection";
 import HeroSection from "./components/Home/HeroSection";
 import Image from "next/image";
 import Services from "./components/Home/Services";
-import Blogs from "./components/Home/Blogs";
+import Posts from "./components/Home/Posts";
 import CallToAction from "./components/Home/CallToAction";
 import OurSolutions from "./components/Home/OurSolutions";
 import Testimonials from "./components/Home/Testimonials";
@@ -21,7 +21,7 @@ export default function Home() {
          <Testimonials/>
          <WhyUs/>
          <BrandsSection/>
-         <Blogs/>
+         <Posts/>
        
     </>
   );

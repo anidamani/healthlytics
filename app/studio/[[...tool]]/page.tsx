@@ -9,11 +9,21 @@
 
 import { NextStudio } from 'next-sanity/studio'
 import config from '../../../sanity.config'
+import Script from 'next/script'
 
 export const dynamic = 'force-static'
 
 export { metadata, viewport } from 'next-sanity/studio'
 
 export default function StudioPage() {
-  return <NextStudio config={config} />
+  return (
+    <>
+      <Script
+        src="https://core.sanity-cdn.com/bridge.js"
+        async
+        type="module"
+      />
+      <NextStudio config={config} />
+    </>
+  )
 }

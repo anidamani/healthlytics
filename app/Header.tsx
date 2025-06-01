@@ -25,7 +25,7 @@ const Header = () => {
           <Link href="/services"><h1 className={navItem}>Services</h1></Link>
           <Link href="/products"><h1 className={navItem}>Products</h1></Link>
           <Link href="/about-us"><h1 className={navItem}>About Us</h1></Link>
-          <Link href="/blogs"><h1 className={navItem}>Blogs</h1></Link>
+          <Link href="/posts"><h1 className={navItem}>Posts</h1></Link>
           <Link href="/contact"><h1 className={navItem}>Contact</h1></Link>
         </div>
 
@@ -49,7 +49,7 @@ const Header = () => {
             <Link href="/services" onClick={() => setOpen(false)}><h1 className={navItem2}>Services</h1></Link>
             <Link href="/products" onClick={() => setOpen(false)}><h1 className={navItem2}>Products / Case Studies</h1></Link>
             <Link href="/about-us" onClick={() => setOpen(false)}><h1 className={navItem2}>About Us</h1></Link>
-            <Link href="/blogs" onClick={() => setOpen(false)}><h1 className={navItem2}>Blogs</h1></Link>
+            <Link href="/posts" onClick={() => setOpen(false)}><h1 className={navItem2}>Posts</h1></Link>
             <Link href="/contact" onClick={() => setOpen(false)}><h1 className={navItem2}>Contact</h1></Link>
             <Link href="/contact" onClick={() => setOpen(false)}><Button text='Contact Us' /></Link>
           </div>
