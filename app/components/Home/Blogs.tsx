@@ -5,28 +5,30 @@ import { motion } from 'framer-motion';
 import Button from '../Button';
 import BlogCard from './BlogCard';
 import Link from 'next/link';
+import { getAllBlogs } from '../../lib/sanity';
 
 interface Blog {
-  documentId: string;
+  _id: string;
   title: string;
   about: string;
-  image?: {
-    formats: {
-      medium: {
-        url: string;
-      };
-    };
-  };
+  slug: string;
+  image?: any;
 }
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
-    fetch('https://clever-presence-a67cb10add.strapiapp.com/api/blogs?populate=image')
-      .then((response) => response.json())
-      .then((data) => setBlogs(data.data))
-      .catch((error) => console.error('Error fetching blogs:', error));
+    const fetchBlogs = async () => {
+      try {
+        const blogData = await getAllBlogs();
+        setBlogs(blogData);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
+    };
+    
+    fetchBlogs();
   }, []);
 
   return (
@@ -61,7 +63,7 @@ const Blogs = () => {
 
       <div className="grid sm:grid-cols-2 gap-3 lg:grid-cols-4">
         {blogs?.slice(0, 4).map((blog) => (
-          <BlogCard key={blog.documentId} blog={blog} />
+          <BlogCard key={blog._id} blog={blog} />
         ))}
       </div>
     </motion.div>

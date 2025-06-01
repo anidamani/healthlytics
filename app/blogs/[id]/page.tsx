@@ -1,18 +1,15 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { getBlogById, urlFor } from '../../lib/sanity';
+import { PortableText } from '@portabletext/react';
 
 interface Blog {
-  id: number;
+  _id: string;
   title: string;
-  deccription: string;  
-  image?: {
-    formats: {
-      medium: {
-        url: string;
-      }
-    }
-  };
+  description: any;  // Using 'any' for Portable Text content from post's body field
+  slug: string;
+  image?: any;  // This is now mapped from mainImage in the query
 }
 
 const Page = () => {
@@ -31,12 +28,8 @@ const Page = () => {
   const fetchBlogData = async (blogId: string) => {
     setIsLoading(true);  // Set loading to true when the fetch starts
     try {
-      const response = await fetch(`https://clever-presence-a67cb10add.strapiapp.com/api/blogs/${blogId}?populate=image`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      setBlog(data.data);
+      const blogData = await getBlogById(blogId);
+      setBlog(blogData);
     } catch (error) {
       console.error('Error fetching blog:', error);
     } finally {
@@ -48,21 +41,26 @@ const Page = () => {
 
   if (!blog) return <div>Blog not found</div>;  // Display if no blog is found
 
-  const { title, deccription, image } = blog;
+  const { title, description, image } = blog;
 
   return (
-    <div className='article-content'>
-      <h1>{title}</h1>
-      {image && image.formats.medium && (
-        <Image
-          src={`${image.formats.medium.url}`}
-          alt={title}
-          width={750}
-          height={429}
-        />
+    <div className='article-content px-4 py-8 max-w-4xl mx-auto'>
+      <h1 className='text-3xl font-bold mb-6'>{title}</h1>
+      {image && (
+        <div className='mb-8'>
+          <Image
+            src={urlFor(image).width(750).url()}
+            alt={title}
+            width={750}
+            height={429}
+            className='rounded-lg'
+          />
+        </div>
       )}
-      {/* Safely render HTML content from description */}
-      <div dangerouslySetInnerHTML={{ __html: deccription }}></div>
+      {/* Render Portable Text content */}
+      <div className='prose max-w-none'>
+        {description && <PortableText value={description} />}
+      </div>
     </div>
   );
 };
